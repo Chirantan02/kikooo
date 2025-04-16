@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { projects } from '@/data/projects';
-import { Playfair_Display, Montserrat } from 'next/font/google';
+import { Playfair_Display } from 'next/font/google';
 import { motion } from 'framer-motion';
+import { clashDisplay } from '@/fonts';
 
 // Load premium fonts
 const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'] });
-const montserrat = Montserrat({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
 
 const SimpleGallery: React.FC = () => {
   // References for scrolling to sections
@@ -28,19 +28,19 @@ const SimpleGallery: React.FC = () => {
         <div className="flex space-x-6">
           <button
             onClick={() => scrollToSection(worksRef)}
-            className={`${montserrat.className} text-white text-lg font-light hover:text-gray-300 transition-colors`}
+            className={`${clashDisplay.className} text-white text-lg font-light hover:text-gray-300 transition-colors`}
           >
             Works
           </button>
           <button
             onClick={() => scrollToSection(infoRef)}
-            className={`${montserrat.className} text-white text-lg font-light hover:text-gray-300 transition-colors`}
+            className={`${clashDisplay.className} text-white text-lg font-light hover:text-gray-300 transition-colors`}
           >
             About
           </button>
           <button
             onClick={() => scrollToSection(contactRef)}
-            className={`${montserrat.className} text-white text-lg font-light hover:text-gray-300 transition-colors`}
+            className={`${clashDisplay.className} text-white text-lg font-light hover:text-gray-300 transition-colors`}
           >
             Contact
           </button>
@@ -49,20 +49,20 @@ const SimpleGallery: React.FC = () => {
 
       <main>
         <div ref={worksRef} className="pt-32 px-8 bg-[#0a0a0a]">
-          <h1 className={`${playfair.className} text-white text-4xl md:text-7xl font-semibold tracking-tight mb-2`}>Archive of</h1>
-          <h1 className={`${playfair.className} text-white text-4xl md:text-7xl font-semibold tracking-tight`}>Selected Works</h1>
+          <h1 className={`${clashDisplay.className} text-white text-4xl md:text-7xl font-semibold tracking-tight mb-2`}>Archive of</h1>
+          <h1 className={`${clashDisplay.className} text-white text-4xl md:text-7xl font-semibold tracking-tight`}>Selected Works</h1>
 
           <div className="mt-24 space-y-40">
             {projects.map((project, index) => (
               <div key={project.id} className="min-h-screen flex items-center justify-center">
                 <motion.div
-                  className="relative w-full max-w-5xl overflow-hidden rounded-lg shadow-2xl"
+                  className="relative w-full max-w-6xl overflow-hidden rounded-lg shadow-2xl"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true, margin: "-100px" }}
                 >
-                  <div className="relative aspect-video w-full overflow-hidden">
+                  <div className="relative aspect-[16/9] w-full overflow-hidden">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -70,13 +70,6 @@ const SimpleGallery: React.FC = () => {
                       style={{ objectFit: 'cover' }}
                       priority={index < 2}
                     />
-                  </div>
-                  <div className="bg-[#0f0f13] p-8">
-                    <h2 className={`${playfair.className} text-white text-3xl font-medium mb-4`}>{project.title}</h2>
-                    <p className={`${montserrat.className} text-gray-300 mb-6`}>{project.description}</p>
-                    <button className={`${montserrat.className} bg-white text-black px-6 py-3 hover:bg-gray-200 transition-colors`}>
-                      View Project
-                    </button>
                   </div>
                 </motion.div>
               </div>
@@ -86,15 +79,9 @@ const SimpleGallery: React.FC = () => {
 
         {/* About Me Section */}
         <div ref={infoRef} className="min-h-screen w-full bg-[#0a0a0a] px-8 py-24 relative overflow-hidden">
-          {/* Abstract background elements */}
-          <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
-            <div className="absolute top-[10%] left-[5%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-blue-500/20 to-transparent blur-[150px]"></div>
-            <div className="absolute bottom-[20%] right-[10%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-tr from-purple-500/20 to-transparent blur-[130px]"></div>
-          </div>
-
           {/* Decorative elements */}
-          <div className="absolute top-0 left-[10%] w-[80%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-          <div className="absolute bottom-0 left-[10%] w-[80%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          <div className="absolute top-0 left-[10%] w-[80%] h-px bg-white/10"></div>
+          <div className="absolute bottom-0 left-[10%] w-[80%] h-px bg-white/10"></div>
 
           <div className="max-w-[1400px] mx-auto relative z-10">
             {/* Large, impactful heading */}
@@ -141,15 +128,15 @@ const SimpleGallery: React.FC = () => {
                 transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}
                 viewport={{ once: true }}
               >
-                <p className="font-[&apos;Helvetica_Neue&apos;] text-white text-xl md:text-2xl leading-relaxed mb-12">
+                <p className={`${clashDisplay.className} text-white text-xl md:text-2xl leading-relaxed mb-12`}>
                   I&apos;m <span className="text-white font-bold">Chirantan Bhardwaj</span>, an entrepreneur and creative professional with a passion for building innovative solutions.
                   With expertise in design, technology, and business strategy, I help brands and organizations create meaningful digital experiences.
                 </p>
-                <p className="font-[&apos;Helvetica_Neue&apos;] text-gray-300 text-xl md:text-2xl leading-relaxed mb-12">
+                <p className={`${clashDisplay.className} text-gray-300 text-xl md:text-2xl leading-relaxed mb-12`}>
                   My approach combines strategic thinking with creative execution, ensuring that every project not only looks beautiful
                   but also delivers tangible results.
                 </p>
-                <p className="font-[&apos;Helvetica_Neue&apos;] text-gray-300 text-xl md:text-2xl leading-relaxed">
+                <p className={`${clashDisplay.className} text-gray-300 text-xl md:text-2xl leading-relaxed`}>
                   I believe in the power of thoughtful design and cutting-edge technology to solve complex problems. My goal is to create digital experiences that not only look stunning but also provide intuitive, meaningful interactions that resonate with users and achieve business objectives.
                 </p>
 
@@ -175,35 +162,32 @@ const SimpleGallery: React.FC = () => {
               >
                 <div className="sticky top-32 space-y-12">
                   <div className="relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 blur-xl"></div>
                     <div className="relative bg-black/40 backdrop-blur-md p-8 border border-white/10">
-                      <h4 className="font-['Helvetica_Neue'] text-white text-2xl font-bold uppercase mb-6 flex items-center">
+                      <h4 className={`${clashDisplay.className} text-white text-2xl font-bold uppercase mb-6 flex items-center`}>
                         <span className="w-8 h-px bg-white mr-4"></span>
                         Experience
                       </h4>
-                      <p className="font-['Helvetica_Neue'] text-white text-xl">10+ years in digital design & development</p>
+                      <p className={`${clashDisplay.className} text-white text-xl`}>10+ years in digital design & development</p>
                     </div>
                   </div>
 
                   <div className="relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 blur-xl"></div>
                     <div className="relative bg-black/40 backdrop-blur-md p-8 border border-white/10">
-                      <h4 className="font-['Helvetica_Neue'] text-white text-2xl font-bold uppercase mb-6 flex items-center">
+                      <h4 className={`${clashDisplay.className} text-white text-2xl font-bold uppercase mb-6 flex items-center`}>
                         <span className="w-8 h-px bg-white mr-4"></span>
                         Projects
                       </h4>
-                      <p className="font-['Helvetica_Neue'] text-white text-xl">100+ successful projects delivered</p>
+                      <p className={`${clashDisplay.className} text-white text-xl`}>100+ successful projects delivered</p>
                     </div>
                   </div>
 
                   <div className="relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-blue-500/10 blur-xl"></div>
                     <div className="relative bg-black/40 backdrop-blur-md p-8 border border-white/10">
-                      <h4 className="font-['Helvetica_Neue'] text-white text-2xl font-bold uppercase mb-6 flex items-center">
+                      <h4 className={`${clashDisplay.className} text-white text-2xl font-bold uppercase mb-6 flex items-center`}>
                         <span className="w-8 h-px bg-white mr-4"></span>
                         Clients
                       </h4>
-                      <p className="font-['Helvetica_Neue'] text-white text-xl">From startups to Fortune 500 companies</p>
+                      <p className={`${clashDisplay.className} text-white text-xl`}>From startups to Fortune 500 companies</p>
                     </div>
                   </div>
                 </div>
@@ -214,15 +198,9 @@ const SimpleGallery: React.FC = () => {
 
         {/* Contact Section */}
         <div ref={contactRef} className="min-h-screen w-full bg-[#0a0a0a] px-8 py-24 relative overflow-hidden">
-          {/* Abstract background elements */}
-          <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
-            <div className="absolute top-[20%] right-[5%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-bl from-indigo-500/20 to-transparent blur-[150px]"></div>
-            <div className="absolute bottom-[10%] left-[10%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-tr from-purple-500/20 to-transparent blur-[130px]"></div>
-          </div>
-
           {/* Decorative elements */}
-          <div className="absolute top-0 left-[10%] w-[80%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-          <div className="absolute bottom-0 left-[10%] w-[80%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          <div className="absolute top-0 left-[10%] w-[80%] h-px bg-white/10"></div>
+          <div className="absolute bottom-0 left-[10%] w-[80%] h-px bg-white/10"></div>
 
           <div className="max-w-[1400px] mx-auto relative z-10">
             {/* Large, impactful heading */}
@@ -234,7 +212,7 @@ const SimpleGallery: React.FC = () => {
               viewport={{ once: true }}
             >
               <motion.h2
-                className="font-['Helvetica_Neue'] text-white text-7xl md:text-[10rem] font-bold tracking-tighter leading-[0.9] uppercase"
+                className={`${clashDisplay.className} text-white text-7xl md:text-[10rem] font-bold tracking-tighter leading-[0.9] uppercase`}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.2 }}
@@ -273,7 +251,7 @@ const SimpleGallery: React.FC = () => {
                 <div className="sticky top-32 space-y-16">
                   <div>
                     <motion.h3
-                      className="font-['Helvetica_Neue'] text-white text-3xl font-bold uppercase mb-12 inline-block relative"
+                      className={`${clashDisplay.className} text-white text-3xl font-bold uppercase mb-12 inline-block relative`}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1], delay: 0.3 }}
@@ -327,12 +305,12 @@ const SimpleGallery: React.FC = () => {
                           <div className="flex items-start space-x-6">
                             <div className="text-gray-400 group-hover:text-white transition-colors duration-500">{item.icon}</div>
                             <div>
-                              <h4 className="font-['Helvetica_Neue'] text-white text-xl font-bold uppercase mb-2">{item.title}</h4>
+                              <h4 className={`${clashDisplay.className} text-white text-xl font-bold uppercase mb-2`}>{item.title}</h4>
                               <a
                                 href={item.href}
                                 target={item.href.startsWith("mailto") ? "_self" : "_blank"}
                                 rel={item.href.startsWith("mailto") ? "" : "noopener noreferrer"}
-                                className="font-['Helvetica_Neue'] text-gray-400 hover:text-white transition-colors duration-500 border-b border-transparent hover:border-white/30 inline-block text-lg"
+                                className={`${clashDisplay.className} text-gray-400 hover:text-white transition-colors duration-500 border-b border-transparent hover:border-white/30 inline-block text-lg`}
                               >
                                 {item.content}
                               </a>
@@ -350,16 +328,15 @@ const SimpleGallery: React.FC = () => {
                     viewport={{ once: true }}
                     className="mt-16 relative overflow-hidden"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 blur-xl"></div>
                     <div className="relative bg-black/40 backdrop-blur-md p-8 border border-white/10">
-                      <h4 className="font-['Helvetica_Neue'] text-white text-2xl font-bold uppercase mb-6 flex items-center">
+                      <h4 className={`${clashDisplay.className} text-white text-2xl font-bold uppercase mb-6 flex items-center`}>
                         <span className="w-8 h-px bg-white mr-4"></span>
                         Working Hours
                       </h4>
                       <div className="space-y-4">
                         <div className="flex justify-between">
-                          <p className="font-['Helvetica_Neue'] text-gray-400 text-lg">Monday - Friday</p>
-                          <p className="font-['Helvetica_Neue'] text-white text-lg">9am - 6pm</p>
+                          <p className={`${clashDisplay.className} text-gray-400 text-lg`}>Monday - Friday</p>
+                          <p className={`${clashDisplay.className} text-white text-lg`}>9am - 6pm</p>
                         </div>
                         <div className="flex justify-between">
                           <p className="font-['Helvetica_Neue'] text-gray-400 text-lg">Weekend</p>
@@ -401,7 +378,6 @@ const SimpleGallery: React.FC = () => {
                 </motion.p>
 
                 <div className="relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-blue-500/5 blur-xl"></div>
                   <div className="relative bg-black/20 backdrop-blur-sm p-10 border border-white/10">
                     <form className="space-y-12">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -489,23 +465,7 @@ const SimpleGallery: React.FC = () => {
               </motion.div>
             </div>
 
-            {/* Final call to action */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.3 }}
-              viewport={{ once: true }}
-              className="mt-40 text-center relative"
-            >
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 blur-[100px] opacity-70"></div>
-              <h3 className="font-[&apos;Helvetica_Neue&apos;] text-white text-4xl md:text-6xl font-bold uppercase tracking-tight relative inline-block mb-10">
-                <span className="absolute -bottom-4 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/50 to-transparent"></span>
-                Let&apos;s create something amazing
-              </h3>
-              <p className="font-[&apos;Helvetica_Neue&apos;] text-gray-300 text-xl max-w-3xl mx-auto mt-10">
-                Whether you have a specific project in mind or just want to explore possibilities, I&apos;m here to help bring your vision to life.
-              </p>
-            </motion.div>
+            {/* Final call to action section removed */}
           </div>
         </div>
       </main>
@@ -549,53 +509,25 @@ const SimpleGallery: React.FC = () => {
               </div>
             </div>
 
-            <div className="md:col-span-7 grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="md:col-span-7 flex flex-col items-center">
               {/* Quick Links */}
-              <div>
-                <h3 className="font-['Helvetica_Neue'] text-white text-xl font-bold uppercase mb-8">Quick Links</h3>
-                <ul className="space-y-4">
-                  <li><a href="#" className="font-['Helvetica_Neue'] text-gray-400 hover:text-white transition-colors duration-500 text-lg">Home</a></li>
-                  <li><a href="#" className="font-['Helvetica_Neue'] text-gray-400 hover:text-white transition-colors duration-500 text-lg">Works</a></li>
-                  <li><a href="#" className="font-['Helvetica_Neue'] text-gray-400 hover:text-white transition-colors duration-500 text-lg">About</a></li>
-                  <li><a href="#" className="font-['Helvetica_Neue'] text-gray-400 hover:text-white transition-colors duration-500 text-lg">Contact</a></li>
-                </ul>
-              </div>
-
-              {/* Legal */}
-              <div>
-                <h3 className="font-['Helvetica_Neue'] text-white text-xl font-bold uppercase mb-8">Legal</h3>
-                <ul className="space-y-4">
-                  <li><a href="#" className="font-['Helvetica_Neue'] text-gray-400 hover:text-white transition-colors duration-500 text-lg">Privacy Policy</a></li>
-                  <li><a href="#" className="font-['Helvetica_Neue'] text-gray-400 hover:text-white transition-colors duration-500 text-lg">Terms of Service</a></li>
-                  <li><a href="#" className="font-['Helvetica_Neue'] text-gray-400 hover:text-white transition-colors duration-500 text-lg">Cookie Policy</a></li>
-                  <li><a href="#" className="font-['Helvetica_Neue'] text-gray-400 hover:text-white transition-colors duration-500 text-lg">Sitemap</a></li>
-                </ul>
-              </div>
-
-              {/* Newsletter */}
-              <div>
-                <h3 className="font-['Helvetica_Neue'] text-white text-xl font-bold uppercase mb-8">Stay Updated</h3>
-                <p className="font-['Helvetica_Neue'] text-gray-400 text-lg mb-6">Subscribe for updates</p>
-                <div className="flex">
-                  <input type="email" placeholder="Your email" className="bg-transparent border border-white/20 text-white px-4 py-3 w-full focus:outline-none focus:border-white transition-colors duration-500 font-['Helvetica_Neue']" />
-                  <button className="bg-white text-black px-5 py-3 hover:bg-gray-200 transition-colors duration-500 font-['Helvetica_Neue'] font-bold">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                      <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
-                    </svg>
-                  </button>
+              <div className="w-full flex justify-center mb-16">
+                <div className="text-center">
+                  <h3 className={`${clashDisplay.className} text-white text-xl font-bold uppercase mb-8 text-center`}>Quick Links</h3>
+                  <ul className="space-y-4 text-center">
+                    <li><a href="#" className={`${clashDisplay.className} text-gray-400 hover:text-white transition-colors duration-500 text-lg`}>Home</a></li>
+                    <li><a href="#" className={`${clashDisplay.className} text-gray-400 hover:text-white transition-colors duration-500 text-lg`}>Works</a></li>
+                    <li><a href="#" className={`${clashDisplay.className} text-gray-400 hover:text-white transition-colors duration-500 text-lg`}>About</a></li>
+                    <li><a href="#" className={`${clashDisplay.className} text-gray-400 hover:text-white transition-colors duration-500 text-lg`}>Contact</a></li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Copyright and bottom links */}
-          <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
-            <div className="font-['Helvetica_Neue'] text-gray-500 text-lg mb-6 md:mb-0">&copy; {new Date().getFullYear()} Chirantan Bhardwaj. All rights reserved.</div>
-            <div className="flex space-x-10">
-              <a href="#" className="font-['Helvetica_Neue'] text-gray-500 text-lg hover:text-white transition-colors duration-500">Privacy</a>
-              <a href="#" className="font-['Helvetica_Neue'] text-gray-500 text-lg hover:text-white transition-colors duration-500">Terms</a>
-              <a href="#" className="font-['Helvetica_Neue'] text-gray-500 text-lg hover:text-white transition-colors duration-500">Cookies</a>
-            </div>
+          {/* Copyright */}
+          <div className="pt-10 border-t border-white/10 flex justify-center items-center">
+            <div className={`${clashDisplay.className} text-gray-500 text-lg`}>&copy; {new Date().getFullYear()} Chirantan Bhardwaj. All rights reserved.</div>
           </div>
         </div>
       </footer>

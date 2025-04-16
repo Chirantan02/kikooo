@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowIntro(false);
-    }, 8000); // 8 seconds for the intro animation
+    }, 10000); // Increased from 8 to 10 seconds to accommodate the 2-second delay
 
     return () => clearTimeout(timer);
   }, []);

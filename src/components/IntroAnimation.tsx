@@ -19,7 +19,7 @@ const IntroAnimation: React.FC = () => {
             setIsComplete(true);
             return 100;
           }
-          return prev + 0.5; // Increment by 0.5% every frame for slower animation
+          return prev + 0.4; // Reduced from 0.5 to 0.4 for even slower animation
         });
       }, 30); // Update every 30ms for smoother animation
 
@@ -41,25 +41,26 @@ const IntroAnimation: React.FC = () => {
   const nameBlur = animationProgress < 35 ? 0 :
                   animationProgress < 45 ? (animationProgress - 35) * 3 : 30;
 
-  // Title (Entrepreneur) appears only after name animation has started to fade
-  const titleOpacity = animationProgress < 40 ? 0 :
-                      animationProgress < 45 ? (animationProgress - 40) / 5 :
-                      animationProgress < 80 ? 1 :
-                      animationProgress < 85 ? 1 - (animationProgress - 80) / 5 : 0;
+  // Title (Entrepreneur) appears only after name animation has completely faded out
+  // Added a clear 2-second delay between name fade-out and title fade-in
+  const titleOpacity = animationProgress < 50 ? 0 : // Wait until name is completely gone (45%)
+                      animationProgress < 55 ? (animationProgress - 50) / 5 : // Fade in over 5%
+                      animationProgress < 80 ? 1 : // Stay visible
+                      animationProgress < 85 ? 1 - (animationProgress - 80) / 5 : 0; // Fade out
 
-  const titleScale = animationProgress < 40 ? 0.8 :
-                    animationProgress < 45 ? 1 :
-                    animationProgress < 80 ? 1 + ((animationProgress - 45) * 0.5) :
-                    animationProgress < 85 ? 15 + (animationProgress - 80) * 5 : 40;
+  const titleScale = animationProgress < 50 ? 0.8 : // Start slightly smaller
+                    animationProgress < 55 ? 1 : // Scale to normal size as it fades in
+                    animationProgress < 80 ? 1 + ((animationProgress - 55) * 0.5) : // Grow slowly
+                    animationProgress < 85 ? 15 + (animationProgress - 80) * 5 : 40; // Grow rapidly as it fades out
 
-  const titleBlur = animationProgress < 75 ? 0 :
-                   animationProgress < 85 ? (animationProgress - 75) * 3 : 30;
+  const titleBlur = animationProgress < 75 ? 0 : // No blur initially
+                   animationProgress < 85 ? (animationProgress - 75) * 3 : 30; // Add blur as it fades out
 
-  const overlayOpacity = animationProgress < 90 ? 0 :
-                        animationProgress < 95 ? (animationProgress - 90) / 5 : 1;
+  const overlayOpacity = animationProgress < 95 ? 0 : // Adjusted from 90 to 95
+                        animationProgress < 100 ? (animationProgress - 95) / 5 : 1; // Adjusted from 95 to 100
 
-  const overlayScale = animationProgress < 90 ? 0.001 :
-                      animationProgress < 100 ? 0.001 + (animationProgress - 90) * 5 : 50;
+  const overlayScale = animationProgress < 95 ? 0.001 : // Adjusted from 90 to 95
+                      animationProgress < 100 ? 0.001 + (animationProgress - 95) * 10 : 50; // Adjusted from 90 to 95 and increased multiplier
 
   return (
     <div

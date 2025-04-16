@@ -38,8 +38,26 @@ export const projects: Project[] = [
   },
   {
     id: 6,
-    image: "/projects/project6.jpg",
+    image: "/projects/project6.png",
     title: "IoT Platform",
     description: "An Internet of Things platform for connecting and managing smart devices."
+  },
+  {
+    id: 7,
+    image: "/projects/project7.jpg",
+    title: "Data Visualization",
+    description: "Interactive data visualization dashboard for business analytics."
+  },
+  {
+    id: 8,
+    image: "/projects/project8.jpg",
+    title: "Social Media App",
+    description: "A social networking platform with real-time messaging and content sharing."
+  },
+  {
+    id: 9,
+    image: "/projects/project9.jpg",
+    title: "Educational Platform",
+    description: "Online learning platform with interactive courses and assessments."
   }
 ];

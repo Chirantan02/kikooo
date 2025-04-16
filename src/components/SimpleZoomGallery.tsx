@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { projects } from '@/data/projects';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ContactSection from './ContactSection';
@@ -10,97 +9,121 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+// Define ordered projects with new images
+const orderedProjects = [
+  { id: 1, image: '/projects/project1.jpg', title: 'Project 1', description: 'Project 1 Description' },
+  { id: 2, image: '/projects/project2.jpg', title: 'Project 2', description: 'Project 2 Description' },
+  { id: 3, image: '/projects/project3.jpg', title: 'Project 3', description: 'Project 3 Description' },
+  { id: 4, image: '/projects/project4.jpg', title: 'Project 4', description: 'Project 4 Description' },
+  { id: 5, image: '/projects/project5.jpg', title: 'Project 5', description: 'Project 5 Description' },
+  { id: 6, image: '/projects/project6.png', title: 'Project 6', description: 'Project 6 Description' },
+  { id: 7, image: '/projects/project7.jpg', title: 'Project 7', description: 'Project 7 Description' },
+  { id: 8, image: '/projects/project8.jpg', title: 'Project 8', description: 'Project 8 Description' },
+  { id: 9, image: '/projects/project9.jpg', title: 'Project 9', description: 'Project 9 Description' },
+];
+
 const SimpleZoomGallery: React.FC = () => {
-  // State to track current active project index
   const [activeIndex, setActiveIndex] = useState(0);
-  
-  // Create refs for the container and sections
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
-  
-  // Initialize ScrollTrigger and animations
+  const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   useEffect(() => {
     if (!containerRef.current) return;
-    
-    // Create a context to isolate GSAP animations
+
     const ctx = gsap.context(() => {
-      // Set up each project section
+      // Initial setup - stack all images with decreasing scale and opacity
+      imageRefs.current.forEach((image, idx) => {
+        if (image) {
+          gsap.set(image, {
+            scale: 1 - (idx * 0.05),
+            opacity: 1 - (idx * 0.15),
+            z: -50 * idx,
+            transformOrigin: 'center center'
+          });
+        }
+      });
+
+      // Set up scroll triggers for each section
       sectionRefs.current.forEach((section, index) => {
         if (!section) return;
-        
-        // Get the image element
-        const image = section.querySelector('.project-image');
-        if (!image) return;
-        
-        // Create the ScrollTrigger for this section
+
         ScrollTrigger.create({
           trigger: section,
-          start: 'top bottom', // Start when the top of the section reaches the bottom of the viewport
-          end: 'bottom top', // End when the bottom of the section reaches the top of the viewport
-          scrub: 1, // 1 second smoothing lag for slow effect
+          start: 'top center',
+          end: 'bottom center',
+          scrub: 1,
           onEnter: () => {
-            console.log(`Entering section ${index}`);
             setActiveIndex(index);
-          },
-          onUpdate: (self) => {
-            // Calculate scale based on progress (1.0 to 1.5)
-            const scale = 1 + (self.progress * 0.5);
-            
-            // Apply scale to the image
-            gsap.to(image, {
-              scale: scale,
-              duration: 0.1, // Very short duration for responsive feel
-              ease: "power2.inOut"
+
+            // Animate current image to full size and opacity
+            imageRefs.current.forEach((image, idx) => {
+              if (image) {
+                gsap.to(image, {
+                  scale: idx === index ? 1 : 1 - ((idx - index) * 0.05),
+                  opacity: idx === index ? 1 : Math.max(0, 1 - ((idx - index) * 0.15)),
+                  z: -50 * Math.abs(idx - index),
+                  duration: 1,
+                  ease: 'power2.out'
+                });
+              }
             });
-            
-            console.log(`Section ${index} progress: ${self.progress.toFixed(2)}, scale: ${scale.toFixed(2)}`);
           }
         });
       });
     }, containerRef);
-    
-    // Cleanup function
+
     return () => {
-      ctx.revert(); // Clean up all GSAP animations
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // Kill all ScrollTriggers
+      ctx.revert();
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
-  
+
   return (
-    <div ref={containerRef} className="bg-black">
-      {/* Project sections */}
-      {projects.map((project, index) => (
-        <div 
-          key={project.id}
-          ref={(el) => { sectionRefs.current[index] = el; }}
-          className="h-screen w-full flex items-center justify-center relative"
-        >
-          {/* Project image */}
-          <div className="relative w-[80vw] h-[80vh] overflow-hidden flex items-center justify-center">
-            <Image
-              src={project.image}
-              alt={project.title}
-              width={1200}
-              height={800}
-              className="project-image object-cover max-w-full max-h-full"
-              priority={true}
-            />
-            
-            {/* Project title */}
-            <div className="absolute bottom-8 left-8 bg-black bg-opacity-70 p-4 rounded-lg">
-              <h2 className="text-white text-2xl font-bold">{project.title}</h2>
-              <p className="text-white mt-2">{project.description}</p>
+    <div ref={containerRef} className="bg-black min-h-screen relative perspective-1000">
+      {/* Fixed image container */}
+      <div className="fixed inset-0 flex items-center justify-center">
+        {orderedProjects.map((project, index) => (
+          <div
+            key={project.id}
+            ref={(el) => { imageRefs.current[index] = el; }}
+            className="absolute w-[80vw] h-[80vh] transition-all duration-500"
+            style={{ transform: `translateZ(${-50 * index}px)` }}
+          >
+            <div className="relative w-full h-full rounded-lg overflow-hidden">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover"
+                priority={index === 0}
+                sizes="80vw"
+              />
+              <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent">
+                <h2 className="text-white text-2xl font-bold">{project.title}</h2>
+                <p className="text-white/80 mt-2">{project.description}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-      
-      {/* Project counter */}
-      <div className="fixed bottom-8 right-8 bg-black bg-opacity-70 text-white px-4 py-2 rounded-lg z-50">
-        {activeIndex + 1} / {projects.length}
+        ))}
       </div>
-      
-      {/* Contact section at the end */}
+
+      {/* Scroll sections */}
+      <div className="relative">
+        {orderedProjects.map((project, index) => (
+          <div
+            key={project.id}
+            ref={(el) => { sectionRefs.current[index] = el; }}
+            className="h-screen w-full"
+          />
+        ))}
+      </div>
+
+      {/* Project counter */}
+      <div className="fixed bottom-8 right-8 bg-black/70 text-white px-4 py-2 rounded-lg z-50">
+        {activeIndex + 1} / {orderedProjects.length}
+      </div>
+
       <ContactSection />
     </div>
   );

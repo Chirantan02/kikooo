@@ -1,5 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Playfair_Display, Inter } from 'next/font/google';
+
+// Load premium fonts
+const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'] });
+const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700'] });
 
 const ContactSection: React.FC = () => {
   return (
@@ -8,15 +13,15 @@ const ContactSection: React.FC = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-2xl w-full"
+        className="max-w-3xl w-full"
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">Get In Touch</h2>
-        
-        <div className="bg-gray-900 p-8 rounded-lg shadow-xl">
+        <h2 className={`${playfair.className} text-5xl md:text-6xl font-bold mb-10 text-center tracking-tight`}>Get In Touch</h2>
+
+        <div className="bg-gray-900 p-10 rounded-xl shadow-2xl border border-gray-800">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div>
-              <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
-              <ul className="space-y-4">
+              <h3 className={`${playfair.className} text-2xl font-semibold mb-6 text-white`}>Contact Information</h3>
+              <ul className={`${inter.className} space-y-5 text-gray-200`}>
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -38,9 +43,9 @@ const ContactSection: React.FC = () => {
                 </li>
               </ul>
             </div>
-            
+
             <div>
-              <h3 className="text-xl font-semibold mb-4">Social Media</h3>
+              <h3 className={`${playfair.className} text-2xl font-semibold mb-6 text-white`}>Social Media</h3>
               <div className="flex flex-wrap gap-4">
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -65,60 +70,60 @@ const ContactSection: React.FC = () => {
               </div>
             </div>
           </div>
-          
-          <div className="mt-8">
-            <h3 className="text-xl font-semibold mb-4">Send a Message</h3>
-            <form className="space-y-4">
+
+          <div className="mt-12">
+            <h3 className={`${playfair.className} text-2xl font-semibold mb-6 text-white`}>Send a Message</h3>
+            <form className={`${inter.className} space-y-6`}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-1">Name</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    className="w-full bg-gray-800 border border-gray-700 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-300">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:border-gray-600"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    className="w-full bg-gray-800 border border-gray-700 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-300">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:border-gray-600"
                     placeholder="Your email"
                   />
                 </div>
               </div>
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-1">Subject</label>
-                <input 
-                  type="text" 
-                  id="subject" 
-                  className="w-full bg-gray-800 border border-gray-700 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                <label htmlFor="subject" className="block text-sm font-medium mb-2 text-gray-300">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:border-gray-600"
                   placeholder="Subject"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-1">Message</label>
-                <textarea 
-                  id="message" 
-                  rows={4} 
-                  className="w-full bg-gray-800 border border-gray-700 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-300">Message</label>
+                <textarea
+                  id="message"
+                  rows={5}
+                  className="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:border-gray-600"
                   placeholder="Your message"
                 ></textarea>
               </div>
-              <button 
-                type="submit" 
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition-colors"
+              <button
+                type="submit"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg"
               >
                 Send Message
               </button>
             </form>
           </div>
         </div>
-        
-        <div className="mt-12 text-center">
-          <p className="text-gray-400">© {new Date().getFullYear()} Chirantan Bhardwaj. All rights reserved.</p>
+
+        <div className="mt-16 text-center">
+          <p className={`${inter.className} text-gray-400 text-sm`}>© {new Date().getFullYear()} Chirantan Bhardwaj. All rights reserved.</p>
         </div>
       </motion.div>
     </div>
