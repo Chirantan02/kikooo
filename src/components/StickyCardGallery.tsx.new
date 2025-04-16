@@ -1,0 +1,47 @@
+import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import { projects } from '@/data/projects';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Playfair_Display, Montserrat, Cormorant_Garamond } from 'next/font/google';
+import { motion } from 'framer-motion';
+
+// Register the ScrollTrigger plugin
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+// Load premium fonts
+const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'] });
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
+const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
+
+const StickyCardGallery: React.FC = () => {
+  // State to track current active project index and active section
+  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+  const [activeSection, setActiveSection] = useState('works');
+
+  // Refs for DOM elements
+  const containerRef = useRef<HTMLDivElement>(null);
+  const worksRef = useRef<HTMLDivElement>(null);
+  const infoRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+  const sectionRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const imageContainerRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const imageRefs = useRef<Array<HTMLImageElement | null>>([]);
+
+  // Initialize refs arrays
+  useEffect(() => {
+    sectionRefs.current = sectionRefs.current.slice(0, projects.length);
+    imageContainerRefs.current = imageContainerRefs.current.slice(0, projects.length);
+    imageRefs.current = imageRefs.current.slice(0, projects.length);
+  }, []);
+
+  return (
+    <div>
+      <h1>Simplified Component</h1>
+    </div>
+  );
+};
+
+export default StickyCardGallery;
