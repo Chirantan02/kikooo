@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { projects } from '@/data/projects';
 import { Playfair_Display } from 'next/font/google';
@@ -55,23 +56,28 @@ const SimpleGallery: React.FC = () => {
           <div className="mt-24 space-y-40">
             {projects.map((project, index) => (
               <div key={project.id} className="min-h-screen flex items-center justify-center">
-                <motion.div
-                  className="relative w-full max-w-6xl overflow-hidden rounded-lg shadow-2xl"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  viewport={{ once: true, margin: "-100px" }}
-                >
-                  <div className="relative aspect-[16/9] w-full overflow-hidden">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      priority={index < 2}
-                    />
-                  </div>
-                </motion.div>
+                <Link href={`/projects/${project.id}`} className="block w-full max-w-6xl">
+                  <motion.div
+                    className="relative w-full overflow-hidden rounded-lg shadow-2xl group cursor-pointer"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="relative aspect-[16/9] w-full overflow-hidden">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        priority={index < 2}
+                        className="transition-transform duration-700 group-hover:scale-110"
+                      />
+                    </div>
+                  </motion.div>
+                </Link>
               </div>
             ))}
           </div>
