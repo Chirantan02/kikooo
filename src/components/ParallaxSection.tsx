@@ -6,19 +6,19 @@ import { clashDisplay } from "@/fonts";
 import GradientBackground from "./GradientBackground";
 
 interface ParallaxSectionProps {
-  image?: string;
   title: string;
   subtitle: string;
   reverse?: boolean;
   gradientColors?: string[];
+  overlayStyle?: number; // Added to control different gradient overlay styles
 }
 
 export default function ParallaxSection({
-  image,
   title,
   subtitle,
   reverse = false,
-  gradientColors = ["#111111", "#333333", "#222222", "#444444"]
+  gradientColors = ["#111111", "#333333", "#222222", "#444444"],
+  overlayStyle = 0 // Default overlay style
 }: ParallaxSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -70,18 +70,82 @@ export default function ParallaxSection({
           >
             <GradientBackground
               colors={gradientColors}
-              speed={3}
+              speed={0.5} // Reduced from 3 to 0.5
               interactive={true}
             />
           </motion.div>
 
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-          />
+          {/* Dynamic gradient overlay based on style */}
+          {overlayStyle === 0 && (
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+            />
+          )}
+
+          {overlayStyle === 1 && (
+            <motion.div
+              className="absolute inset-0 bg-gradient-radial from-purple-500/30 via-transparent to-black/40 rounded-lg"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+            />
+          )}
+
+          {overlayStyle === 2 && (
+            <motion.div
+              className="absolute inset-0 bg-gradient-conic from-blue-500/20 via-cyan-500/20 to-emerald-500/20 rounded-lg"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+            />
+          )}
+
+          {overlayStyle === 3 && (
+            <motion.div
+              className="absolute inset-0 rounded-lg overflow-hidden"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/30 via-purple-500/20 to-pink-500/30" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-rose-400/20 via-fuchsia-500/10 to-indigo-500/20" />
+            </motion.div>
+          )}
+
+          {overlayStyle === 4 && (
+            <motion.div
+              className="absolute inset-0 rounded-lg overflow-hidden"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 via-blue-500/20 to-purple-600/30" />
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(49,16,189,0.1),rgba(49,16,189,0),rgba(49,16,189,0.1))]" />
+              <div className="absolute inset-0 backdrop-blur-[1px]" />
+            </motion.div>
+          )}
+
+          {overlayStyle === 5 && (
+            <motion.div
+              className="absolute inset-0 rounded-lg overflow-hidden"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+            >
+              <div className="absolute inset-0 bg-[linear-gradient(40deg,rgba(0,200,255,0.15),rgba(0,0,200,0))]" />
+              <div className="absolute inset-0 bg-[linear-gradient(210deg,rgba(0,0,0,0),rgba(102,0,255,0.1))]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,0,255,0.15),rgba(0,0,0,0))]" />
+            </motion.div>
+          )}
         </div>
       </div>
     </motion.div>

@@ -56,38 +56,47 @@ export default function GradientBackground({
 
     // Animation function
     const animate = () => {
-      time += 0.003 * speed;
-      
+      time += 0.0005 * speed; // Reduced from 0.003 to 0.0005 for much slower animation
+
       // Clear canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Create gradient
+
+      // Ensure mousePosition values are valid numbers and within range
+      const mouseX = interactive && !isNaN(mousePosition.current.x) && isFinite(mousePosition.current.x)
+        ? Math.max(0, Math.min(1, mousePosition.current.x))
+        : 0.5;
+
+      const mouseY = interactive && !isNaN(mousePosition.current.y) && isFinite(mousePosition.current.y)
+        ? Math.max(0, Math.min(1, mousePosition.current.y))
+        : 0.5;
+
+      // Create gradient with validated values
       const gradient = ctx.createRadialGradient(
-        canvas.width * (interactive ? mousePosition.current.x : 0.5),
-        canvas.height * (interactive ? mousePosition.current.y : 0.5),
+        canvas.width * mouseX,
+        canvas.height * mouseY,
         0,
-        canvas.width * (interactive ? mousePosition.current.x : 0.5),
-        canvas.height * (interactive ? mousePosition.current.y : 0.5),
+        canvas.width * mouseX,
+        canvas.height * mouseY,
         canvas.width * gradientSize.current
       );
-      
+
       // Add color stops
       colors.forEach((color, i) => {
         const offset = (i / (colors.length - 1) + time) % 1;
         gradient.addColorStop(offset, color);
       });
-      
+
       // Fill canvas with gradient
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
+
       // Continue animation
       animationFrameId.current = requestAnimationFrame(animate);
     };
-    
+
     // Start animation
     animate();
-    
+
     // Cleanup
     return () => {
       window.removeEventListener("resize", setCanvasDimensions);

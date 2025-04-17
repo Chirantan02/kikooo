@@ -63,7 +63,6 @@ const SimpleGallery: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     viewport={{ once: true, margin: "-100px" }}
-                    whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     <div className="relative aspect-[16/9] w-full overflow-hidden">
@@ -73,7 +72,7 @@ const SimpleGallery: React.FC = () => {
                         fill
                         style={{ objectFit: 'cover' }}
                         priority={index < 2}
-                        className="transition-transform duration-700 group-hover:scale-110"
+                        className="transition-transform duration-700"
                       />
                     </div>
                   </motion.div>

@@ -5,15 +5,11 @@ import { motion } from "framer-motion";
 import GradientBackground from "./GradientBackground";
 
 interface Image3DHoverProps {
-  src?: string;
-  alt?: string;
   className?: string;
   colors?: string[];
 }
 
 export default function Image3DHover({
-  src,
-  alt,
   className = "",
   colors = ["#111111", "#333333", "#222222", "#444444"]
 }: Image3DHoverProps) {
@@ -66,7 +62,7 @@ export default function Image3DHover({
         <div className="w-full h-full rounded-lg overflow-hidden">
           <GradientBackground
             colors={colors}
-            speed={3}
+            speed={0.5} // Reduced from 3 to 0.5
             interactive={false}
           />
         </div>

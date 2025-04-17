@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
+import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
 import { clashDisplay } from "@/fonts";
 import Link from "next/link";
@@ -17,8 +16,8 @@ import TextReveal from "@/components/TextReveal";
 export default function ProjectDetail() {
   const params = useParams();
   const router = useRouter();
-  const [project, setProject] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [project, setProject] = useState<typeof projects[0] | null>(null);
+  const [, setLoading] = useState(true);
 
   useEffect(() => {
     // Find the project by ID
@@ -80,7 +79,7 @@ export default function ProjectDetail() {
               "#222222",
               "#444444"
             ]}
-            speed={5}
+            speed={0.5} // Reduced from 5 to 0.5
             interactive={true}
           />
         </div>
@@ -205,26 +204,29 @@ export default function ProjectDetail() {
 
           {/* Project details with parallax images */}
           <div className="space-y-40">
-            {/* Section 1 - Enhanced with ParallaxSection */}
+            {/* Section 1 - Enhanced with ParallaxSection and custom gradient overlay */}
             <ParallaxSection
               title="The Challenge"
               subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Nullam euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
               gradientColors={["#1a1a2e", "#16213e", "#0f3460", "#1a1a2e"]}
+              overlayStyle={1} // Purple radial gradient
             />
 
-            {/* Section 2 - Enhanced with ParallaxSection */}
+            {/* Section 2 - Enhanced with ParallaxSection and custom gradient overlay */}
             <ParallaxSection
               title="The Solution"
               subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Nullam euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
               gradientColors={["#240046", "#3c096c", "#5a189a", "#240046"]}
               reverse={true}
+              overlayStyle={2} // Conic gradient with blue/cyan/emerald
             />
 
-            {/* Section 3 - Enhanced with ParallaxSection */}
+            {/* Section 3 - Enhanced with ParallaxSection and custom gradient overlay */}
             <ParallaxSection
               title="The Results"
               subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Nullam euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
               gradientColors={["#10002b", "#240046", "#3c096c", "#10002b"]}
+              overlayStyle={3} // Complex dual gradient with indigo/purple/pink
             />
 
             {/* Additional 3D cards section */}
@@ -323,7 +325,7 @@ export default function ProjectDetail() {
             >
               <GradientBackground
                 colors={["#3a0ca3", "#4361ee", "#4cc9f0", "#3a0ca3"]}
-                speed={7}
+                speed={0.7} // Reduced from 7 to 0.7
                 interactive={true}
               />
             </motion.div>
@@ -347,7 +349,7 @@ export default function ProjectDetail() {
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
               <p className={`${clashDisplay.className} text-white text-xl md:text-2xl italic mb-8 max-w-3xl`}>
-                "Working with Chirantan was an absolute pleasure. The attention to detail and creative solutions provided exceeded our expectations. The final product was not only visually stunning but also perfectly functional."
+                &quot;Working with Chirantan was an absolute pleasure. The attention to detail and creative solutions provided exceeded our expectations. The final product was not only visually stunning but also perfectly functional.&quot;
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 rounded-full bg-gray-700 mr-4"></div>
