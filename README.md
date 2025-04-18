@@ -1,94 +1,42 @@
-# C CrantaniBhardwaj'anPersontlaBlog
+# Chirantan Bhardwaj's Personal Blog
 
-!n Bhardwaj's Persoimg.shialds.io/badge/Nel .Bl-15o3.0-black
-![Ra](hs://mg.silds.io/bdg/Rac19.0.0-blue)
-![Frmer Motionimg.shildibageFrmer_Moton12.7.1-pupl)
-![TailwidCSS](https:/img.shieds.obdg/TailwidCSS3.3.5-tel
+![Next.js](https://img.shields.io/badge/Next.js-15.3.0-black)
+![React](https://img.shields.io/badge/React-19.0.0-blue)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.7.1-purple)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.3.5-teal)
 
-![N🚀 Projxct Overview
+## Project Overview
 
-This projec. js a submissios(for t fpons:n/ compet[aioMowiti thonth(mt: **"Design a personat blpg with categories, sosts, and a co:m//ismg.ction."** It showcases a modesn, intiective pero#alblog b iltrwith Njxt.js,fehtuiisg stunninga#i ations✨an  a cl[an,pemi#m🎨 sig*Saestreoig.
+This project is a submission for a frontend competition with the theme: **"Design a personal blog with categories, posts, and a comments section."** It showcases a modern, interactive personal blog built with Next.js, featuring stunning animations and a clean, premium design aesthetic.
 
-### ✨ [Live Demdions**s: Tpxrtfofid-uihacke.vercel.app/n
+### [Live Demo](https://portfolio-uihacks.vercel.app/)
 
-##d🎨aFeataxes
+## Features
 
-- **Captivating IntcrnAnimagi n**:eElfgant namecand titlvea wih smo th*trynmiPions
--r**Scroll-Triggeroj Anemacto s**:aTexg fads-ins and**arall:x scrollin  effDcts
--i**Zool-frem-CejtercGrllary**:iProj ctiimtersastcri small and grvw erogressively lergertsthe apprachvewr- **Responsive Design**: Fully optimized for all screen sizes
-- **Dynam*cPPemium TPagep**: Detailodrprojyc* in ormatiCl wie  interacrive elemened
-- **R tpcnrsve Desegc**: Ffly ed r all scree size
-- **PremiumTypgraphy**: Clean,readble ex wth refuselecdfots
--**Bg Ctgore** Organizd ontent stins resynavigatio
-- **BlogPss**:Beutfulmattedatile pags- **Blog Categories**: Organized content sections for easy navigation
--***CommBgts Stcti n**:*IntCroctivFoc*mm*ni:y engagemany
--m**Conunct Form**:aEtsyic mmunicanionnclann lfoir viits
+- **Captivating Intro Animation**: Elegant name and title reveal with smooth transitions
+- **Scroll-Triggered Animations**: Text fade-ins and parallax scrolling effects
+- **Zoom-from-Center Gallery**: Project images start small and grow progressively larger as they approach the viewer
+- **Dynamic Project Pages**: Detailed project information with interactive elements
+- **Responsive Design**: Fully optimized for all screen sizes
+- **Premium Typography**: Clean, readable text with carefully selected fonts
+- **Blog Categories**: Organized content sections for easy navigation
+- **Blog Posts**: Beautifully formatted article pages
+- **Comments Section**: Interactive community engagement
+- **Contact Form**: Easy communication channel for visitors
 
-## 🛠️ Tehnologis Ued
+## Technologies Used
 
-##**🛠️ Tec 15**:hRealt fragiwork for producsion-gr de applicaUsed
-- **React 19** Compon-baeUIibry
--**TypeScrip**:Typ-a JvaScrip
-- **FamrMotion**: Advceanimation library
-**GSAP**: Profssionl-gade aimationoolki
-- **TailwidCSS**: Uility-firt CSS framewk
-- **Vrcel Anlytics**: Peformacedusage sighs
-
-## 🚀 Gtting Stred
-
-### Prerequsits
-
--od 18.17 lter- **Next.js 15**: React framework for production-grade applications
-- npm,*yera, orcpnpm
-
-###*InsCallapion
-
-```baso
-#eClontdIhebrary
-git clone Chiantan02porfolio-uihacksgit
-cdptolio-uihs
-
-#Instll depeencies
-npmisall
-# or
-yan nsall
-# or
-pnpm tall
-
-#Stt thdevpent servr
-npm run dev- **TypeScript**: Type-safe JavaScript
- *mr
-earn dev
-#r r
-pMpmod*v
-```: Advanced animation library
+- **Next.js 15**: React framework for production-grade applications
+- **React 19**: Component-based UI library
+- **TypeScript**: Type-safe JavaScript
+- **Framer Motion**: Advanced animation library
 - **GSAP**: Professional-grade animation toolkit
-Op*n*[http://localhoit:3508](http://localhoin:3508)dCith Sour browser**: steythesr sulSS
+- **TailwindCSS**: Utility-first CSS framework
+- **Vercel Analytics**: Performance and usage insights
 
-## 📝 Pro ectrStructure
+## Getting Started
 
-- `src/ame`:wMaonkapplicainpagsandyu
-- `s/pons`: Rsb UI coonents
-- `src/da`: Data mods and connt
-- `sc/fo`: Cso fnt configions
- `src/lib`: Utility fucions
- `blic`: Sati ssets luding imags nd fons
-
-## 🌐 Dploymn
-
-This ojct is ployednVercl. Anyhangs puhedt main branh willautmaicallytrigge anw.
-
-## 🔒Lise
-
-All rg rerved This ce is not open fr ontritos or use witht pemss.
-
-## 👤 Authr
-
-**ChrantaBhadwaj**
-
--Websit:[chirantanbharwaj.com](htp://GtigSatd.vercel.app/)
-- Contact: hello@chirantanbhardwaj.com
-## Prerequisites
+### Prerequisites
 
 - Node.js 18.17 or later
 - npm, yarn, or pnpm
@@ -117,7 +65,7 @@ pnpm dev
 
 Open [http://localhost:3508](http://localhost:3508) with your browser to see the result.
 
-## 📝 Project Structure
+## Project Structure
 
 - `src/app`: Main application pages and layouts
 - `src/components`: Reusable UI components
@@ -126,15 +74,15 @@ Open [http://localhost:3508](http://localhost:3508) with your browser to see the
 - `src/lib`: Utility functions
 - `public`: Static assets including images and fonts
 
-## 🌐 Deployment
+## Deployment
 
 This project is deployed on Vercel. Any changes pushed to the main branch will automatically trigger a new deployment.
 
-## 🔒 License
+## License
 
 All rights reserved. This code is not open for contributions or use without permission.
 
-## 👤 Author
+## Author
 
 **Chirantan Bhardwaj**
 
