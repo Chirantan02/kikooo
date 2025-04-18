@@ -87,4 +87,4 @@ All rights reserved. This code is not open for contributions or use without perm
 **Chirantan Bhardwaj**
 
 - Website: [chirantanbhardwaj.com](https://portfolio-uihacks.vercel.app/)
-- Contact: hello@chirantanbhardwaj.com
+- Contact: chirantanbhardwaj@gmail.com
