@@ -1,4 +1,4 @@
-# Chirantan Bhardwaj's Personal Blog
+# Chirantan Bhardwaj's Portfolio Site
 
 ![Next.js](https://img.shields.io/badge/Next.js-15.3.0-black)
 ![React](https://img.shields.io/badge/React-19.0.0-blue)
@@ -7,39 +7,35 @@
 
 ## Project Overview
 
-This project is a submission for a frontend competition with the theme: **"Design a personal blog with categories, posts, and a comments section."** It showcases a modern, interactive personal blog built with Next.js, featuring stunning animations and a clean, premium design aesthetic.
+This project is a submission for a frontend competition with the theme: **"Create a portfolio site with gallery-style project showcases."** It showcases a modern, interactive portfolio site built with Next.js, featuring stunning animations and a clean, premium design aesthetic.
 
 ### [Live Demo](https://portfolio-uihacks.vercel.app/)
 
 ## Features
 
-- **Captivating Intro Animation**: Elegant name and title reveal with smooth transitions
-- **Scroll-Triggered Animations**: Text fade-ins and parallax scrolling effects
-- **Zoom-from-Center Gallery**: Project images start small and grow progressively larger as they approach the viewer
-- **Dynamic Project Pages**: Detailed project information with interactive elements
-- **Responsive Design**: Fully optimized for all screen sizes
-- **Premium Typography**: Clean, readable text with carefully selected fonts
-- **Blog Categories**: Organized content sections for easy navigation
-- **Blog Posts**: Beautifully formatted article pages
-- **Comments Section**: Interactive community engagement
-- **Contact Form**: Easy communication channel for visitors
+- **Captivating Intro Animation**: Elegant name and title reveal with smooth transitions.
+- **Scroll-Triggered Animations**: Text fade-ins and parallax scrolling effects.
+- **Zoom-from-Center Gallery**: Project images start small and grow progressively larger as they approach the viewer.
+- **Responsive Design**: Fully optimized for all screen sizes.
+- **Premium Typography**: Clean, readable text with carefully selected fonts.
+- **Contact Form**: Easy communication channel for visitors.
 
 ## Technologies Used
 
-- **Next.js 15**: React framework for production-grade applications
-- **React 19**: Component-based UI library
-- **TypeScript**: Type-safe JavaScript
-- **Framer Motion**: Advanced animation library
-- **GSAP**: Professional-grade animation toolkit
-- **TailwindCSS**: Utility-first CSS framework
-- **Vercel Analytics**: Performance and usage insights
+- **Next.js 15**: React framework for production-grade applications.
+- **React 19**: Component-based UI library.
+- **TypeScript**: Type-safe JavaScript.
+- **Framer Motion**: Advanced animation library.
+- **GSAP**: Professional-grade animation toolkit.
+- **TailwindCSS**: Utility-first CSS framework.
+- **Vercel Analytics**: Performance and usage insights.
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18.17 or later
-- npm, yarn, or pnpm
+- Node.js 18.17 or later.
+- npm, yarn, or pnpm.
 
 ### Installation
 
@@ -67,12 +63,12 @@ Open [http://localhost:3508](http://localhost:3508) with your browser to see the
 
 ## Project Structure
 
-- `src/app`: Main application pages and layouts
-- `src/components`: Reusable UI components
-- `src/data`: Data models and content
-- `src/fonts`: Custom font configurations
-- `src/lib`: Utility functions
-- `public`: Static assets including images and fonts
+- `src/app`: Main application pages and layouts.
+- `src/components`: Reusable UI components.
+- `src/data`: Data models and content.
+- `src/fonts`: Custom font configurations.
+- `src/lib`: Utility functions.
+- `public`: Static assets including images and fonts.
 
 ## Deployment
 
@@ -86,5 +82,4 @@ All rights reserved. This code is not open for contributions or use without perm
 
 **Chirantan Bhardwaj**
 
-- Website: [chirantanbhardwaj.com](https://portfolio-uihacks.vercel.app/)
 - Contact: chirantanbhardwaj@gmail.com
