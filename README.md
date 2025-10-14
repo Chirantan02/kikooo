@@ -1,4 +1,4 @@
-# Chirantan Bhardwaj's Portfolio Site
+# Khushi's Portfolio Site
 
 ![Next.js](https://img.shields.io/badge/Next.js-15.3.0-black)
 ![React](https://img.shields.io/badge/React-19.0.0-blue)
@@ -80,6 +80,6 @@ All rights reserved. This code is not open for contributions or use without perm
 
 ## Author
 
-**Chirantan Bhardwaj**
+**Khushi**
 
 - Contact: chirantanbhardwaj@gmail.com

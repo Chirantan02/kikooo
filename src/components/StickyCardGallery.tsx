@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { projects } from '@/data/projects';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -18,12 +19,11 @@ const montserrat = Montserrat({ subsets: ['latin'], weight: ['300', '400', '500'
 const StickyCardGallery: React.FC = () => {
   // State to track current active project index and active section
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activeSection, setActiveSection] = useState('works'); // 'works', 'info', or 'contact'
+  const [activeSection, setActiveSection] = useState('works'); // 'works' or 'info'
 
   // References for scrolling to sections
   const worksRef = useRef<HTMLDivElement>(null);
   const infoRef = useRef<HTMLDivElement>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
 
   // Create refs for the container and sections
   const containerRef = useRef<HTMLDivElement>(null);
@@ -152,7 +152,7 @@ const StickyCardGallery: React.FC = () => {
     <div ref={containerRef} className="bg-[#0a0a0a] min-h-screen transition-colors duration-1000" style={{ perspective: '1000px' }}>
       {/* Header with navigation */}
       <header className="fixed top-0 left-0 w-full z-50 p-6 flex justify-between items-center pointer-events-none">
-        <div className={`${playfair.className} text-white text-xl font-medium tracking-wider`}>Chirantan Bhardwaj</div>
+        <div className={`${playfair.className} text-white text-xl font-medium tracking-wider`}>Khushi</div>
         <div className="flex space-x-6">
           <button
             onClick={() => {
@@ -172,15 +172,7 @@ const StickyCardGallery: React.FC = () => {
           >
             Info
           </button>
-          <button
-            onClick={() => {
-              setActiveSection('contact');
-              contactRef.current?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className={`${montserrat.className} text-white text-lg font-light pointer-events-auto hover:text-gray-300 transition-colors ${activeSection === 'contact' ? 'border-b border-white' : ''}`}
-          >
-            Contact
-          </button>
+
         </div>
       </header>
 
@@ -206,36 +198,73 @@ const StickyCardGallery: React.FC = () => {
               transformOrigin: 'center center'
             }}
           >
-            <motion.div
-              className="sticky-card-inner card-inner relative w-[85vw] md:w-[70vw] aspect-video overflow-hidden rounded-lg"
-              initial={{ boxShadow: '0 15px 30px rgba(0,0,0,0.3)' }}
-              style={{
-                transformStyle: 'preserve-3d',
-                perspective: '1000px'
-              }}
-            >
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="sticky-card-image object-cover"
-                priority={index === 0} // Priority loading for first image
-              />
+            {project.liveUrl ? (
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
+                <motion.div
+                  className="sticky-card-inner card-inner relative w-[85vw] md:w-[70vw] aspect-video overflow-hidden rounded-lg"
+                  initial={{ boxShadow: '0 15px 30px rgba(0,0,0,0.3)' }}
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    perspective: '1000px'
+                  }}
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="sticky-card-image object-cover"
+                    priority={index === 0} // Priority loading for first image
+                  />
 
-              {/* Project info overlay */}
-              <motion.div
-                className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{
-                  y: activeIndex === index ? 0 : 20,
-                  opacity: activeIndex === index ? 1 : 0
-                }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-              >
-                <h2 className="text-2xl md:text-3xl font-bold text-white">{project.title}</h2>
-                <p className="text-sm md:text-base text-gray-200 mt-2">{project.description}</p>
-              </motion.div>
-            </motion.div>
+                  {/* Project info overlay */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent"
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{
+                      y: activeIndex === index ? 0 : 20,
+                      opacity: activeIndex === index ? 1 : 0
+                    }}
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                  >
+                    <h2 className="text-2xl md:text-3xl font-bold text-white">{project.title}</h2>
+                    <p className="text-sm md:text-base text-gray-200 mt-2">{project.description}</p>
+                  </motion.div>
+                </motion.div>
+              </a>
+            ) : (
+              <Link href={`/projects/${project.id}`} className="w-full h-full flex items-center justify-center">
+                <motion.div
+                  className="sticky-card-inner card-inner relative w-[85vw] md:w-[70vw] aspect-video overflow-hidden rounded-lg"
+                  initial={{ boxShadow: '0 15px 30px rgba(0,0,0,0.3)' }}
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    perspective: '1000px'
+                  }}
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="sticky-card-image object-cover"
+                    priority={index === 0} // Priority loading for first image
+                  />
+
+                  {/* Project info overlay */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent"
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{
+                      y: activeIndex === index ? 0 : 20,
+                      opacity: activeIndex === index ? 1 : 0
+                    }}
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                  >
+                    <h2 className="text-2xl md:text-3xl font-bold text-white">{project.title}</h2>
+                    <p className="text-sm md:text-base text-gray-200 mt-2">{project.description}</p>
+                  </motion.div>
+                </motion.div>
+              </Link>
+            )}
           </div>
 
           {/* Project counter */}
@@ -306,7 +335,7 @@ const StickyCardGallery: React.FC = () => {
               viewport={{ once: true }}
             >
               <p className="font-[&apos;Helvetica_Neue&apos;] text-white text-xl md:text-2xl leading-relaxed mb-12">
-                I&apos;m <span className="text-white font-bold">Chirantan Bhardwaj</span>, an entrepreneur and creative professional with a passion for building innovative solutions.
+                I&apos;m <span className="text-white font-bold">Khushi</span>, an entrepreneur and creative professional with a passion for building innovative solutions.
                 With expertise in design, technology, and business strategy, I help brands and organizations create meaningful digital experiences.
               </p>
               <p className="font-[&apos;Helvetica_Neue&apos;] text-gray-300 text-xl md:text-2xl leading-relaxed mb-12">
@@ -345,7 +374,7 @@ const StickyCardGallery: React.FC = () => {
                       <span className="w-8 h-px bg-white mr-4"></span>
                       Experience
                     </h4>
-                    <p className="font-[&apos;Helvetica_Neue&apos;] text-white text-xl">10+ years in digital design & development</p>
+                    <p className="font-[&apos;Helvetica_Neue&apos;] text-white text-xl">UI/UX Designer at Renivet</p>
                   </div>
                 </div>
 
@@ -683,7 +712,7 @@ const StickyCardGallery: React.FC = () => {
                 <div className="w-12 h-12 border border-white/20 mr-4 flex items-center justify-center">
                   <span className="font-['Helvetica_Neue'] text-white text-xl font-bold">CB</span>
                 </div>
-                <div className="font-['Helvetica_Neue'] text-white text-2xl font-bold tracking-tight uppercase">Chirantan Bhardwaj</div>
+                <div className="font-['Helvetica_Neue'] text-white text-2xl font-bold tracking-tight uppercase">Khushi</div>
               </div>
               <p className="font-['Helvetica_Neue'] text-gray-400 text-lg mb-10 max-w-md leading-relaxed">
                 Creating innovative digital experiences that blend creativity with functionality.
@@ -720,7 +749,7 @@ const StickyCardGallery: React.FC = () => {
                   <li><a href="#" className="font-['Helvetica_Neue'] text-gray-400 hover:text-white transition-colors duration-500 text-lg">Home</a></li>
                   <li><a href="#" className="font-['Helvetica_Neue'] text-gray-400 hover:text-white transition-colors duration-500 text-lg">Works</a></li>
                   <li><a href="#" className="font-['Helvetica_Neue'] text-gray-400 hover:text-white transition-colors duration-500 text-lg">About</a></li>
-                  <li><a href="#" className="font-['Helvetica_Neue'] text-gray-400 hover:text-white transition-colors duration-500 text-lg">Contact</a></li>
+
                 </ul>
               </div>
 
@@ -753,7 +782,7 @@ const StickyCardGallery: React.FC = () => {
 
           {/* Copyright and bottom links */}
           <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
-            <div className="font-['Helvetica_Neue'] text-gray-500 text-lg mb-6 md:mb-0">&copy; {new Date().getFullYear()} Chirantan Bhardwaj. All rights reserved.</div>
+            <div className="font-['Helvetica_Neue'] text-gray-500 text-lg mb-6 md:mb-0">&copy; {new Date().getFullYear()} Khushi. All rights reserved.</div>
             <div className="flex space-x-10">
               <a href="#" className="font-['Helvetica_Neue'] text-gray-500 text-lg hover:text-white transition-colors duration-500">Privacy</a>
               <a href="#" className="font-['Helvetica_Neue'] text-gray-500 text-lg hover:text-white transition-colors duration-500">Terms</a>

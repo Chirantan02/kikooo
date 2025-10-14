@@ -4,8 +4,8 @@ import PageTransition from '@/components/PageTransition'
 import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = {
-  title: 'Chirantan Bhardwaj | Portfolio',
-  description: 'Personal Portfolio of Chirantan Bhardwaj - Designer, Developer, and Creative Professional',
+  title: 'Khushi | Premium UI/UX Designer Portfolio',
+  description: 'Premium UI/UX design portfolio showcasing innovative digital experiences and creative solutions by Khushi - UI/UX Designer specializing in user-centered design.',
 }
 
 export default function RootLayout({

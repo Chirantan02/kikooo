@@ -85,7 +85,7 @@ const IntroAnimation: React.FC = () => {
           }}
         >
           <h1 className={`${playfair.className} text-7xl font-semibold text-black uppercase tracking-wider text-center whitespace-nowrap`}>
-            Chirantan Bhardwaj
+            Khushi
           </h1>
         </div>
       </div>
@@ -105,7 +105,7 @@ const IntroAnimation: React.FC = () => {
           }}
         >
           <h2 className={`${playfair.className} text-6xl font-medium text-black uppercase tracking-wider text-center whitespace-nowrap`}>
-            Entrepreneur
+            UI/UX Designer
           </h2>
         </div>
       </div>

@@ -3,61 +3,71 @@ export interface Project {
   image: string;
   title: string;
   description: string;
+  technologies?: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  category?: string;
 }
 
 export const projects: Project[] = [
   {
-    id: 1,
-    image: "/projects/project1.jpg",
-    title: "Portfolio Website",
-    description: "A modern, interactive portfolio website built with Next.js and Framer Motion."
+    "id": 4,
+    "image": "/images/flow/flow.png",
+    "title": "FlowPay",
+    "description": "Innovative payment solution for seamless digital transactions with enhanced security and user experience.",
+    "technologies": [
+      "UI/UX Design",
+      "Figma",
+      "Prototyping",
+      "User Research",
+      "Payment Systems"
+    ],
+    "liveUrl": "https://www.behance.net/gallery/236154181/flowpay",
+    "category": "FinTech"
   },
   {
-    id: 2,
-    image: "/projects/project2.jpg",
-    title: "E-Commerce Platform",
-    description: "A full-featured online shopping platform with secure payment processing."
+    "id": 1,
+    "image": "/images/home/HYPD.png",
+    "title": "HYPD",
+    "description": "Revolutionary e-commerce platform empowering creators to monetize their influence through personalized shopping experiences. The Blink-it for Fashion.",
+    "technologies": [
+      "UI/UX Design",
+      "Mobile App Design",
+      "Figma",
+      "Prototyping",
+      "User Experience Innovation"
+    ],
+    "liveUrl": "https://www.behance.net/gallery/220731875/HYPD-The-Blink-it-for-Fashion-",
+    "category": "E-commerce App"
   },
   {
-    id: 3,
-    image: "/projects/project3.jpg",
-    title: "Mobile App",
-    description: "A cross-platform mobile application built with React Native."
+    "id": 2,
+    "image": "/images/home/AERO.png",
+    "title": "AERO",
+    "description": "Reimagining the future of air travel through intuitive design and seamless user experiences. VR & AI-powered airport navigation making travel stress-free.",
+    "technologies": [
+      "UI/UX Design",
+      "VR Design",
+      "AI Integration",
+      "Figma",
+      "Real-time Tracking"
+    ],
+    "liveUrl": "https://www.behance.net/gallery/220730085/AERO-Revolutionizing-Airport-Travel-with-VR-AI",
+    "category": "VR/AI Experience"
   },
   {
-    id: 4,
-    image: "/projects/project4.jpg",
-    title: "AI Assistant",
-    description: "An intelligent virtual assistant powered by machine learning algorithms."
-  },
-  {
-    id: 5,
-    image: "/projects/project5.jpg",
-    title: "Blockchain Solution",
-    description: "A decentralized application built on blockchain technology."
-  },
-  {
-    id: 6,
-    image: "/projects/project6.png",
-    title: "IoT Platform",
-    description: "An Internet of Things platform for connecting and managing smart devices."
-  },
-  {
-    id: 7,
-    image: "/projects/project7.jpg",
-    title: "Data Visualization",
-    description: "Interactive data visualization dashboard for business analytics."
-  },
-  {
-    id: 8,
-    image: "/projects/project8.jpg",
-    title: "Social Media App",
-    description: "A social networking platform with real-time messaging and content sharing."
-  },
-  {
-    id: 9,
-    image: "/projects/project9.jpg",
-    title: "Educational Platform",
-    description: "Online learning platform with interactive courses and assessments."
+    "id": 3,
+    "image": "/images/home/GREENCLOZ.jpg",
+    "title": "GREENCLOZ",
+    "description": "Sustainable fashion platform that connects eco-conscious consumers with ethical fashion choices. Your Digital Wardrobe for sustainable living.",
+    "technologies": [
+      "UI/UX Design",
+      "Web Design",
+      "Figma",
+      "User Research",
+      "Sustainable Design"
+    ],
+    "liveUrl": "https://www.behance.net/gallery/220735589/GreenCloz-Your-Digital-Wardrobe",
+    "category": "Lifestyle App"
   }
 ];

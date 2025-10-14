@@ -1,0 +1,184 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "image": "https://khushi-beige.vercel.app/_next/image?url=%2Fhome%2FHYPD.png&w=3840&q=100",
+      "title": "HYPD",
+      "description": "HYPD project showcase",
+      "technologies": [
+        "UI/UX Design",
+        "Mobile App Design",
+        "Figma",
+        "Prototyping"
+      ],
+      "liveUrl": "https://www.behance.net/gallery/220730085/AERO-Revolutionizing-Airport-Travel-with-VR-AI",
+      "category": "design"
+    },
+    {
+      "id": 2,
+      "image": "https://khushi-beige.vercel.app/_next/image?url=%2Fhome%2FGREENCLOZ.jpg&w=3840&q=100",
+      "title": "GreenCloz",
+      "description": "GreenCloz project showcase",
+      "technologies": [
+        "UI/UX Design",
+        "Web Design",
+        "Figma",
+        "User Research"
+      ],
+      "liveUrl": "https://www.behance.net/gallery/220730085/AERO-Revolutionizing-Airport-Travel-with-VR-AI",
+      "category": "design"
+    },
+    {
+      "id": 3,
+      "image": "https://khushi-beige.vercel.app/_next/image?url=%2Fhome%2FAERO.png&w=3840&q=100",
+      "title": "Aero",
+      "description": "Aero project showcase",
+      "technologies": [
+        "UI/UX Design",
+        "VR Design",
+        "AI Integration",
+        "Figma"
+      ],
+      "liveUrl": "https://www.behance.net/gallery/220730085/AERO-Revolutionizing-Airport-Travel-with-VR-AI",
+      "category": "design"
+    }
+  ],
+  "personalInfo": {
+    "name": "Khushi",
+    "title": "UI/UX Designer",
+    "bio": "I'm a junior UX/UI Designer based in Delhi, Mumbai, combining my design degree and self-taught skills to create user-centric designs that solve real problems. I'm passionate about crafting experiences that are not just functional but also visually engaging.",
+    "email": "kikokhushi515@gmail.com",
+    "socialLinks": {
+      "linkedin": "https://linkedin.com/in/khushi-k-8240312aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
+  },
+  "skills": [
+    {
+      "name": "UI/UX Design",
+      "category": "design",
+      "proficiency": 75
+    },
+    {
+      "name": "Mobile App Design",
+      "category": "design",
+      "proficiency": 75
+    },
+    {
+      "name": "Figma",
+      "category": "design",
+      "proficiency": 75
+    },
+    {
+      "name": "Prototyping",
+      "category": "design",
+      "proficiency": 75
+    },
+    {
+      "name": "Web Design",
+      "category": "design",
+      "proficiency": 75
+    },
+    {
+      "name": "User Research",
+      "category": "design",
+      "proficiency": 75
+    },
+    {
+      "name": "VR Design",
+      "category": "design",
+      "proficiency": 75
+    },
+    {
+      "name": "AI Integration",
+      "category": "design",
+      "proficiency": 75
+    }
+  ],
+  "images": [
+    {
+      "url": "https://khushi-beige.vercel.app/_next/image?url=%2Fabout%2Fme.jpg&w=3840&q=100",
+      "localPath": "/images/gallery/image-1.jpg&w=3840&q=100",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/_next/image?url=%2Fhome%2FHYPD.png&w=3840&q=100",
+      "localPath": "/images/gallery/image-2.png&w=3840&q=100",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/_next/image?url=%2Fhome%2FGREENCLOZ.jpg&w=3840&q=100",
+      "localPath": "/images/gallery/image-3.jpg&w=3840&q=100",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/_next/image?url=%2Fhome%2FAERO.png&w=3840&q=100",
+      "localPath": "/images/gallery/image-4.png&w=3840&q=100",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/_next/image?url=%2Fabout%2Flarge1.png&w=1920&q=75",
+      "localPath": "/images/gallery/image-5.png&w=1920&q=75",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/_next/image?url=%2Fabout%2Fsmall1.png&w=828&q=75",
+      "localPath": "/images/gallery/image-6.png&w=828&q=75",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/_next/image?url=%2Fabout%2Fsmall2.png&w=828&q=75",
+      "localPath": "/images/gallery/image-7.png&w=828&q=75",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/_next/image?url=%2Fabout%2Fsmall3.png&w=828&q=75",
+      "localPath": "/images/gallery/image-8.png&w=828&q=75",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/_next/image?url=%2Fabout%2Fsmall4.png&w=828&q=75",
+      "localPath": "/images/gallery/image-9.png&w=828&q=75",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/_next/image?url=%2Fabout%2Fsmall5.png&w=828&q=75",
+      "localPath": "/images/gallery/image-10.png&w=828&q=75",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/_next/image?url=%2Fabout%2Fcute.png&w=828&q=75",
+      "localPath": "/images/gallery/image-11.png&w=828&q=75",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/_next/image?url=%2Fabout%2Fsmall%208.jpg&w=828&q=75",
+      "localPath": "/images/gallery/image-12.jpg&w=828&q=75",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/_next/image?url=%2Fabout%2Fsmall%209.jpg&w=828&q=75",
+      "localPath": "/images/gallery/image-13.jpg&w=828&q=75",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/_next/image?url=%2Fabout%2Flarge4.png&w=1920&q=75",
+      "localPath": "/images/gallery/image-14.png&w=1920&q=75",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/home/HYPD.png",
+      "localPath": "/images/gallery/image-15.png",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/home/GREENCLOZ.jpg",
+      "localPath": "/images/gallery/image-17.jpg",
+      "type": "gallery"
+    },
+    {
+      "url": "https://khushi-beige.vercel.app/home/AERO.png",
+      "localPath": "/images/gallery/image-19.png",
+      "type": "gallery"
+    }
+  ]
+}
