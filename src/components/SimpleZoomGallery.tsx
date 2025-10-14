@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ContactSection from './ContactSection';
 
 // Register the ScrollTrigger plugin
 if (typeof window !== 'undefined') {
@@ -124,7 +123,6 @@ const SimpleZoomGallery: React.FC = () => {
         {activeIndex + 1} / {orderedProjects.length}
       </div>
 
-      <ContactSection />
     </div>
   );
 };

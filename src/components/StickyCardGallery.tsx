@@ -405,8 +405,7 @@ const StickyCardGallery: React.FC = () => {
         </div>
       </section>
 
-      {/* Redesigned Contact Section */}
-      <section ref={contactRef} className="min-h-screen w-full bg-[#0a0a0a] px-8 py-24 relative overflow-hidden">
+
         {/* Abstract background elements */}
         <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
           <div className="absolute top-[20%] right-[5%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-bl from-indigo-500/20 to-transparent blur-[150px]"></div>
@@ -700,7 +699,6 @@ const StickyCardGallery: React.FC = () => {
             </p>
           </motion.div>
         </div>
-      </section>
       {/* Enhanced Professional Footer */}
       <footer className="bg-[#0a0a0a] py-20 px-8 border-t border-white/10">
         <div className="max-w-[1400px] mx-auto">

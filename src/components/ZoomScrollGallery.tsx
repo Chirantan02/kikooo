@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { projects } from '@/data/projects';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ContactSection from './ContactSection';
 
 // Register the ScrollTrigger plugin
 if (typeof window !== 'undefined') {
@@ -294,10 +293,7 @@ const ZoomScrollGallery: React.FC = () => {
           {activeIndex + 1} / {projects.length}
         </div>
 
-        {/* Contact section at the end */}
-        <div className="relative" style={{ marginTop: `${projects.length * 100}vh` }}>
-          <ContactSection />
-        </div>
+
 
         {/* Current project title - large display */}
         <div className="fixed bottom-24 left-8 text-white text-3xl font-bold z-50 bg-black bg-opacity-70 p-4 rounded-lg">
