@@ -7,6 +7,16 @@ const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '500', '
 const IntroAnimation: React.FC = () => {
   const [animationProgress, setAnimationProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Auto-advance the animation progress
   useEffect(() => {
@@ -34,9 +44,21 @@ const IntroAnimation: React.FC = () => {
   const nameOpacity = animationProgress < 40 ? 1 :
                      animationProgress < 45 ? 1 - (animationProgress - 40) / 5 : 0;
 
-  const nameScale = animationProgress < 20 ? 1 :
-                   animationProgress < 40 ? 1 + ((animationProgress - 20) * 0.35) :
-                   animationProgress < 45 ? 15 + (animationProgress - 40) * 5 : 40;
+  const nameScale = isMobile
+    ? animationProgress < 20
+      ? 1
+      : animationProgress < 40
+      ? 1 + (animationProgress - 20) * 0.2
+      : animationProgress < 45
+      ? 5 + (animationProgress - 40) * 2
+      : 15
+    : animationProgress < 20
+    ? 1
+    : animationProgress < 40
+    ? 1 + (animationProgress - 20) * 0.35
+    : animationProgress < 45
+    ? 15 + (animationProgress - 40) * 5
+    : 40;
 
   const nameBlur = animationProgress < 35 ? 0 :
                   animationProgress < 45 ? (animationProgress - 35) * 3 : 30;
@@ -48,10 +70,25 @@ const IntroAnimation: React.FC = () => {
                       animationProgress < 80 ? 1 : // Stay visible
                       animationProgress < 85 ? 1 - (animationProgress - 80) / 5 : 0; // Fade out
 
-  const titleScale = animationProgress < 50 ? 0.8 : // Start slightly smaller
-                    animationProgress < 55 ? 1 : // Scale to normal size as it fades in
-                    animationProgress < 80 ? 1 + ((animationProgress - 55) * 0.5) : // Grow slowly
-                    animationProgress < 85 ? 15 + (animationProgress - 80) * 5 : 40; // Grow rapidly as it fades out
+  const titleScale = isMobile
+    ? animationProgress < 50
+      ? 0.8
+      : animationProgress < 55
+      ? 1
+      : animationProgress < 80
+      ? 1 + (animationProgress - 55) * 0.2
+      : animationProgress < 85
+      ? 5 + (animationProgress - 80) * 2
+      : 15
+    : animationProgress < 50
+    ? 0.8
+    : animationProgress < 55
+    ? 1
+    : animationProgress < 80
+    ? 1 + (animationProgress - 55) * 0.5
+    : animationProgress < 85
+    ? 15 + (animationProgress - 80) * 5
+    : 40;
 
   const titleBlur = animationProgress < 75 ? 0 : // No blur initially
                    animationProgress < 85 ? (animationProgress - 75) * 3 : 30; // Add blur as it fades out
@@ -84,7 +121,7 @@ const IntroAnimation: React.FC = () => {
             width: 'max-content',
           }}
         >
-          <h1 className={`${playfair.className} text-7xl font-semibold text-black uppercase tracking-wider text-center whitespace-nowrap`}>
+          <h1 className={`${playfair.className} text-5xl md:text-7xl font-semibold text-black uppercase tracking-wider text-center whitespace-nowrap`}>
             Khushi
           </h1>
         </div>
@@ -104,7 +141,7 @@ const IntroAnimation: React.FC = () => {
             zIndex: 20,
           }}
         >
-          <h2 className={`${playfair.className} text-6xl font-medium text-black uppercase tracking-wider text-center whitespace-nowrap`}>
+          <h2 className={`${playfair.className} text-4xl md:text-6xl font-medium text-black uppercase tracking-wider text-center whitespace-nowrap`}>
             UI/UX Designer
           </h2>
         </div>
